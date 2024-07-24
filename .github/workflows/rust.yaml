@@ -31,6 +31,6 @@ jobs:
         run: cargo +${{matrix.toolchain}} build --release
       - uses: actions/upload-artifact@v3
         with:
-          name: runtime
+          name: runtime-${{matrix.toolchain}}
           path: target/release/rust_ci_labs
 
