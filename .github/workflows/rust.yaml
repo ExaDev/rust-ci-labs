@@ -45,12 +45,11 @@ jobs:
         with:
           pattern: runtime-*
           path: release-artifacts/
-      - name: Display structure of downloaded files
-        run: ls -R release-artifacts/
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            release-artifacts/*
+            release-artifacts/runtime-stable
+            release-artifacts/runtime-nightly
           draft: true
 
