@@ -41,6 +41,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Create tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/edge',
+              sha: context.sha
+            })
       - uses: actions/download-artifact@v4
         with:
           pattern: runtime-*
@@ -48,8 +58,10 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: edge
+          body: "Latest commit: ${{ github.event.head_commit.message }}"
+          draft: true
           files: |
             release-artifacts/runtime-stable
             release-artifacts/runtime-nightly
-          draft: true
 
