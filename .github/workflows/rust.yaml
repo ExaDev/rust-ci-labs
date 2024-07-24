@@ -49,7 +49,7 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -lah
       - name: Display structure of downloaded files
-        run: ls -R release-artifacts/
+        run: ls -R release-artifacts/rust_ci_labs
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
