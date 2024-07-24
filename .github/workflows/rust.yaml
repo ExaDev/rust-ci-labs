@@ -38,9 +38,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: runtime
-          path: ./target/release/runtime
-      - uses: actions/upload-artifact@v3
-        with:
-          name: builder
-          path: ./target/release/builder
+          path: ./target/release/rust_ci_labs
 
