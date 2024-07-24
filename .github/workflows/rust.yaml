@@ -29,7 +29,7 @@ jobs:
           rustup toolchain install ${{matrix.toolchain}}
       - name: 'Build'
         run: cargo +${{matrix.toolchain}} build --release
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: runtime-${{matrix.toolchain}}
           path: target/release/rust_ci_labs
