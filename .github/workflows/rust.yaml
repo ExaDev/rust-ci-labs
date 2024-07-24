@@ -29,16 +29,6 @@ jobs:
           rustup toolchain install ${{matrix.toolchain}}
       - name: 'Build'
         run: cargo +${{matrix.toolchain}} build --release
-
-  upload-workflow-artifacts:
-    name: 'Upload workflow artifacts'
-    needs: [ 'build' ]
-    runs-on: 'ubuntu-latest'
-    steps:
-      - uses: actions/checkout@v4
-      - run: ls -lah
-      - run: pwd
-      - run: ls -lah ./target/release
       - uses: actions/upload-artifact@v3
         with:
           name: runtime
