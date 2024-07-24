@@ -50,6 +50,14 @@ jobs:
               repo: context.repo.repo,
               ref: 'refs/tags/edge',
               sha: context.sha
+            }).catch(err => {
+                if (err.status !== 422) throw err;
+                github.rest.git.updateRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: 'refs/tags/edge',
+                sha: context.sha
+              });
             })
       - uses: actions/download-artifact@v4
         with:
