@@ -63,6 +63,7 @@ jobs:
         with:
           pattern: runtime-*
           path: release-artifacts/
+          merge-multiple: true
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
@@ -104,6 +105,7 @@ jobs:
         with:
           name: runtime-stable
           path: release-artifacts/
+          merge-multiple: true
 
       - name: Build and push Docker images
         id: push
