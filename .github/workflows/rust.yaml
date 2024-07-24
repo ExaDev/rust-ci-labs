@@ -35,8 +35,11 @@ jobs:
     needs: [ 'build' ]
     runs-on: 'ubuntu-latest'
     steps:
+      - run: ls -lah
+      - run: pwd
+      - run: ls -lah ./target/release
       - uses: actions/upload-artifact@v3
         with:
           name: runtime
-          path: ./target/release/rust_ci_labs
+          path: target/release/rust_ci_labs
 
