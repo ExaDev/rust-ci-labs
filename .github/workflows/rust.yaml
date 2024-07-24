@@ -46,9 +46,7 @@ jobs:
           pattern: runtime-*
           path: release-artifacts/
       - name: Display structure of downloaded files
-        run: ls -lah
-      - name: Display structure of downloaded files
-        run: ls -R release-artifacts/rust_ci_labs
+        run: ls -R release-artifacts/
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
